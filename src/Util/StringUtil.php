@@ -16,7 +16,7 @@ namespace Puli\Cli\Util;
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
-class StringUtil
+final class StringUtil
 {
     /**
      * Returns the short class name for a fully-qualified class name.
@@ -34,6 +34,11 @@ class StringUtil
         return $className;
     }
 
+    /**
+     * @param $string
+     *
+     * @return bool|int|null|string
+     */
     public static function parseValue($string)
     {
         switch ($string) {

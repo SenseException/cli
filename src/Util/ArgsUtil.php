@@ -21,7 +21,7 @@ use Webmozart\Console\Api\Args\Args;
  *
  * @author Bernhard Schussek <bschussek@gmail.com>
  */
-class ArgsUtil
+final class ArgsUtil
 {
     /**
      * Returns the packages selected in the console arguments.
