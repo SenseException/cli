@@ -198,7 +198,7 @@ class PublishCommandHandler
             $mappings = $this->assetManager->getAssetMappings();
         }
 
-        if (!$mappings) {
+        if (0 === count($mappings)) {
             $io->writeLine('Nothing to install.');
 
             return 0;
@@ -272,7 +272,7 @@ class PublishCommandHandler
 
         $mappings = $this->assetManager->findAssetMappings($expr);
 
-        if (!$mappings) {
+        if (0 === count($mappings)) {
             throw new RuntimeException(sprintf(
                 'The mapping with the UUID prefix "%s" does not exist.',
                 $uuidPrefix

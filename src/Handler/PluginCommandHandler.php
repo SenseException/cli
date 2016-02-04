@@ -52,7 +52,7 @@ class PluginCommandHandler
     {
         $pluginClasses = $this->manager->getPluginClasses();
 
-        if (!$pluginClasses) {
+        if (0 === count($pluginClasses)) {
             $io->writeLine('No plugin classes. Use "puli plugin --install <class>" to install a plugin class.');
 
             return 0;

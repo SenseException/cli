@@ -87,7 +87,7 @@ class TypeCommandHandler
 
                 $bindingTypes = $this->discoveryManager->findTypeDescriptors($expr);
 
-                if (!$bindingTypes) {
+                if (0 === count($bindingTypes)) {
                     continue;
                 }
 
@@ -103,7 +103,7 @@ class TypeCommandHandler
 
                 if ($printPackageName) {
                     $prefix = $printStates ? '    ' : '';
-                    $io->writeLine("{$prefix}Package: $packageName");
+                    $io->writeLine(sprintf('%sPackage: %s', $prefix, $packageName));
                     $io->writeLine('');
                 }
 
@@ -241,7 +241,7 @@ class TypeCommandHandler
      *
      * @param IO                      $io          The I/O.
      * @param BindingTypeDescriptor[] $descriptors The type descriptors to print.
-     * @param string                  $styleTag    The tag used to style the output
+     * @param string|null             $styleTag    The tag used to style the output
      * @param int                     $indentation The number of spaces to indent.
      */
     private function printTypeTable(IO $io, array $descriptors, $styleTag = null, $indentation = 0)
@@ -262,19 +262,19 @@ class TypeCommandHandler
                     ? $parameter->getName()
                     : $parameter->getName().'='.StringUtil::formatValue($parameter->getDefaultValue());
 
-                $parameters[$parameter->getName()] = "<$paramTag>$paramString</$paramTag>";
+                $parameters[$parameter->getName()] = sprintf('<%1$s>%2$s</%1$s>', $paramTag, $paramString);
             }
 
             $description = $descriptor->getDescription();
 
-            if ($styleTag) {
-                $description = "<$styleTag>$description</$styleTag>";
+            if (!empty($styleTag)) {
+                $description = sprintf('<%1$s>%2$s</%1$s>', $styleTag, $description);
             }
 
             ksort($parameters);
 
             $table->addRow(array(
-                "<$typeTag>".$descriptor->getTypeName()."</$typeTag>",
+                sprintf('<%1$s>%2$s</%1$s>', $typeTag, $descriptor->getTypeName()),
                 $description,
                 implode("\n", $parameters),
             ));
@@ -359,8 +359,8 @@ class TypeCommandHandler
     private function typesEqual(BindingTypeDescriptor $descriptor1, BindingTypeDescriptor $descriptor2)
     {
         return $descriptor1->getTypeName() === $descriptor2->getTypeName() &&
-            $descriptor1->getDescription() === $descriptor2->getDescription() &&
-            $descriptor1->getParameterDescriptions() === $descriptor2->getParameterDescriptions() &&
-            $descriptor1->getType()->getParameters() === $descriptor2->getType()->getParameters();
+        $descriptor1->getDescription() === $descriptor2->getDescription() &&
+        $descriptor1->getParameterDescriptions() === $descriptor2->getParameterDescriptions() &&
+        $descriptor1->getType()->getParameters() === $descriptor2->getType()->getParameters();
     }
 }

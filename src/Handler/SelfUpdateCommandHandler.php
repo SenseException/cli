@@ -62,6 +62,13 @@ class SelfUpdateCommandHandler
         return 0;
     }
 
+    /**
+     * Returns the stability value from the arguments
+     *
+     * @param Args $args
+     *
+     * @return string
+     */
     private function getStability(Args $args)
     {
         if ($args->isOptionSet('stable')) {

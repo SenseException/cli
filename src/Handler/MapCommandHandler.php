@@ -90,7 +90,7 @@ class MapCommandHandler
 
                 $mappings = $this->repoManager->findPathMappings($expr);
 
-                if (!$mappings) {
+                if (0 === count($mappings)) {
                     continue;
                 }
 
@@ -115,7 +115,7 @@ class MapCommandHandler
 
                 $mappings = $this->repoManager->findPathMappings($expr);
 
-                if (!$mappings) {
+                if (0 === count($mappings)) {
                     continue;
                 }
 
@@ -382,6 +382,6 @@ class MapCommandHandler
     private function mappingsEqual(PathMapping $mapping1, PathMapping $mapping2)
     {
         return $mapping1->getRepositoryPath() === $mapping2->getRepositoryPath() &&
-            $mapping1->getPathReferences() === $mapping2->getPathReferences();
+        $mapping1->getPathReferences() === $mapping2->getPathReferences();
     }
 }
