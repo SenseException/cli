@@ -265,6 +265,8 @@ class PublishCommandHandler
      * @param string $uuidPrefix
      *
      * @return AssetMapping
+     *
+     * @throws RuntimeException
      */
     private function getMappingByUuidPrefix($uuidPrefix)
     {

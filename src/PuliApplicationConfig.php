@@ -137,13 +137,13 @@ class PuliApplicationConfig extends DefaultApplicationConfig
 
         $this
             ->beginCommand('bind')
-                ->setDescription('Bind resources to binding types')
                 ->setHandler(function () use ($puli) {
                     return new BindCommandHandler(
                         $puli->getDiscoveryManager(),
                         $puli->getPackageManager()->getPackages()
                     );
                 })
+                ->setDescription('Bind resources to binding types')
 
                 ->beginOptionCommand('add')
                     ->markAnonymous()
