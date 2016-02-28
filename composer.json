@@ -9,13 +9,19 @@
             "email": "bschussek@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/SenseException/console.git"
+        }
+    ],
     "require": {
         "php": "^5.3.9|^7.0",
         "puli/repository": "^1.0-beta9",
         "puli/discovery": "^1.0-beta9",
         "puli/url-generator": "^1.0-beta4",
         "puli/manager": "^1.0-beta10",
-        "webmozart/console": "^1.0-beta4",
+        "webmozart/console": "dev-master#0ed66d443f00b1577e529adbd63d86e8e2e5294f",
         "webmozart/path-util": "^2.2.2",
         "webmozart/expression": "^1.0",
         "webmozart/glob": "^4.0",
