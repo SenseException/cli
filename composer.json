@@ -21,7 +21,7 @@
         "puli/discovery": "^1.0-beta9",
         "puli/url-generator": "^1.0-beta4",
         "puli/manager": "^1.0-beta10",
-        "webmozart/console": "dev-master#0ed66d443f00b1577e529adbd63d86e8e2e5294f",
+        "webmozart/console": "dev-master#81733f24dc2965b885de14792bc276731a84ebb2",
         "webmozart/path-util": "^2.2.2",
         "webmozart/expression": "^1.0",
         "webmozart/glob": "^4.0",
